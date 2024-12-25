@@ -467,7 +467,7 @@ export default {
         ],
         remoteConfig: [
           {
-            label: "通用",
+            label: "殊途",
             options: [
               {
                 label: "殊途",
