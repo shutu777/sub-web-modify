@@ -470,14 +470,13 @@ export default {
             label: "通用",
             options: [
               {
+                label: "殊途",
+                value: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
+              },
+              {
                 label: "默认",
                 value:
                   "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
-              },
-              {
-                label: "殊途",
-                value:
-                  "https://gist.githubusercontent.com/shutu777/2e48a4091dbfcdc7b80c29fa4e30dd39/raw/033a0950e5b4ea089be48963571de448af208aba/shutu_template.ini",
               },
               {
                 label: "默认（自动测速）",
