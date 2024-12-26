@@ -449,7 +449,7 @@ export default {
               },
               {
                 label: "殊途",
-                value: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
+                value: "https://code.shutu736.cn/shutu/rule-config/raw/branch/main/clash/shutu_template.ini",
               },
               {
                 label: "默认（自动测速）",
@@ -866,7 +866,7 @@ export default {
         clientType: "",
         customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
+        remoteConfig: "https://code.shutu736.cn/shutu/rule-config/raw/branch/main/clash/shutu_template.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
