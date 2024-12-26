@@ -4,32 +4,8 @@
       <el-col>
         <el-card>
           <div slot="header">
-            <svg-icon class="gayhub" icon-class="github" style="float: left" @click="goToProject" />
-            <svg-icon
-              class="dianbao"
-              icon-class="telegram"
-              style="float: left; margin-left: 10px"
-              @click="gotoTgChannel"
-            />
-            <svg-icon
-              class="bilibili"
-              icon-class="bilibili"
-              style="float: right; margin-left: 10px"
-              @click="gotoBiliBili"
-            />
-            <svg-icon
-              class="youguan"
-              icon-class="youtube"
-              style="float: right; margin-left: 10px"
-              @click="gotoYouTuBe"
-            />
-            <svg-icon
-              class="channel"
-              icon-class="telegram"
-              style="float: right; margin-left: 10px"
-              @click="gotoTgChannel"
-            />
-            <div style="text-align: center; font-size: 15px">订 阅 转 换</div>
+            <svg-icon class="gayhub" icon-class="github" style="float: left; cursor: pointer" @click="goToProject" />
+            <div style="text-align: center; font-size: 20px; padding-right: 4%">订 阅 转 换</div>
           </div>
           <el-container>
             <el-form :model="form" label-width="80px" label-position="left" style="width: 100%">
@@ -406,9 +382,6 @@ const shortUrlBackend = process.env.VUE_APP_MYURLS_DEFAULT_BACKEND + "/short";
 const configUploadBackend = process.env.VUE_APP_CONFIG_UPLOAD_BACKEND + "/sub.php";
 const basicVideo = process.env.VUE_APP_BASIC_VIDEO;
 const advancedVideo = process.env.VUE_APP_ADVANCED_VIDEO;
-const tgBotLink = process.env.VUE_APP_BOT_LINK;
-const yglink = process.env.VUE_APP_YOUTUBE_LINK;
-const bzlink = process.env.VUE_APP_BILIBILI_LINK;
 const downld = "http://" + window.location.host + "/download.html";
 export default {
   data() {
@@ -467,16 +440,16 @@ export default {
         ],
         remoteConfig: [
           {
-            label: "殊途",
+            label: "默认",
             options: [
-              {
-                label: "殊途",
-                value: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
-              },
               {
                 label: "默认",
                 value:
                   "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
+              },
+              {
+                label: "殊途",
+                value: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
               },
               {
                 label: "默认（自动测速）",
@@ -893,8 +866,7 @@ export default {
         clientType: "",
         customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
-        remoteConfig:
-          "https://raw.githubusercontent.com/ACL4SSR/ACL4SSR/master/Clash/config/ACL4SSR_Online_Full_NoAuto.ini",
+        remoteConfig: "https://sub.shutu736.me:8888/kEqUcd8j3AjSHQ84lnPk/api/file/shutu_template.ini",
         excludeRemarks: "",
         includeRemarks: "",
         filename: "",
@@ -905,7 +877,7 @@ export default {
         nodeList: false,
         extraset: false,
         tls13: false,
-        udp: false,
+        udp: true,
         xudp: false,
         tfo: false,
         sort: false,
@@ -938,7 +910,6 @@ export default {
       uploadFilter: "",
       uploadScript: "",
       uploadConfig: "",
-      myBot: tgBotLink,
       filterConfig: filterConfigSample,
       scriptConfig: scriptConfigSample,
       sampleConfig: remoteConfigSample,
@@ -1018,15 +989,6 @@ export default {
     },
     goToProject() {
       window.open(project);
-    },
-    gotoTgChannel() {
-      window.open(tgBotLink);
-    },
-    gotoBiliBili() {
-      window.open(bzlink);
-    },
-    gotoYouTuBe() {
-      window.open(yglink);
     },
     toolsDown() {
       window.open(downld);
