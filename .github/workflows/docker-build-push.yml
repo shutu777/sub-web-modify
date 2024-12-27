@@ -22,14 +22,20 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       # 3. 设置 Docker 镜像标签
-      - name: Set up Docker image tag
+      - name: Set up Docker image tags
         id: vars
-        run: echo "image_tag=your-dockerhub-username/your-image-name:${{ github.sha }}" >> $GITHUB_ENV
+        run: |
+          echo "latest_tag=${{ secrets.DOCKER_USERNAME }}/sub-web-modify:latest" >> $GITHUB_ENV
+          echo "sha_tag=${{ secrets.DOCKER_USERNAME }}/sub-web-modify:${{ github.sha }}" >> $GITHUB_ENV
 
-      # 4. 构建 Docker 镜像
+      # 4. 构建 Docker 镜像（latest 和基于 Git SHA 的镜像）
       - name: Build Docker image
-        run: docker build -t ${{ env.image_tag }} .
+        run: |
+          docker build -t ${{ env.latest_tag }} .
+          docker build -t ${{ env.sha_tag }} .
 
       # 5. 推送 Docker 镜像到 Docker Hub
       - name: Push Docker image
-        run: docker push ${{ env.image_tag }}
+        run: |
+          docker push ${{ env.latest_tag }}
+          docker push ${{ env.sha_tag }}
