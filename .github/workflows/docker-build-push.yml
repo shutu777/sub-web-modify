@@ -3,7 +3,7 @@ name: Docker Build and Push
 on:
   push:
     branches:
-      - main  # 仅当推送到 main 分支时触发，可根据需要修改分支名称
+      - master  # 仅当推送到 main 分支时触发，可根据需要修改分支名称
 
 jobs:
   build-and-push:
