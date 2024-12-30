@@ -864,7 +864,7 @@ export default {
       form: {
         sourceSubUrl: "",
         clientType: "",
-        customBackend: this.getUrlParam() == "" ? "https://sub.xeton.dev" : this.getUrlParam(),
+        customBackend: this.getUrlParam() == "" ? "https://url.v1.mk" : this.getUrlParam(),
         shortType: "https://v1.mk/short",
         remoteConfig: "https://code.shutu736.cn/shutu/rule-config/raw/branch/main/shutu_template.ini",
         excludeRemarks: "",
